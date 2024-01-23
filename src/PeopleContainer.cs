@@ -1,16 +1,25 @@
-public class PeopleContainer{
 
-        List<Person> personnes = new list();
+using System;
+using System.Collections.Generic;
 
-        public List SortByLastName(List _personnes)
+public class PersonContainer{
+
+        public List<Person> personnes;
+
+        public PersonContainer(List<Person> _personnes)
         {
-            _personnes.nom.Sort((x,y) => string.Compare(x.nom,y.nom));
+            this.personnes= _personnes;
+        }
+
+        public List<Person> SortByLastName(List<Person> _personnes)
+        {
+            _personnes.Sort((x,y) => string.Compare(x.nom,y.nom));
             return _personnes;
         }
 
-        public List SortByFirstName(List _personnes)
+        public List<Person> SortByFirstName(List<Person> _personnes)
         {
-            _personnes.prenom.Sort((x,y) => string.Compare(x.prenom,y.prenom));
+            _personnes.Sort((x,y) => string.Compare(x.prenom,y.prenom));
             return _personnes;
         }
 

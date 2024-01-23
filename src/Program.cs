@@ -1,28 +1,38 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+
 interface IPersonContainer
 {
     List<Person> SortByLastName();
     List<Person> SortByFirstName();
 }
-// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
 
-string nom;
-string prenom;
+class Program {
+        public static void Main (string[] args) {
 
-Console.WriteLine("Saisir le nom");
-nom = Console.ReadLine();
+        // See https://aka.ms/new-console-template for more information
+        Console.WriteLine("Hello, World!");
 
-Console.WriteLine("Saisir le prénom");
-prenom = Console.ReadLine();
+        string nom;
+        string prenom;
 
-Console.WriteLine("Le nom est " + nom + " le prenom est " + prenom);
+        Console.WriteLine("Saisir le nom");
+        nom = Console.ReadLine();
 
-Person myPerson = new Person();
-myPerson.nom = nom;
-myPerson.prenom = prenom;
+        Console.WriteLine("Saisir le prénom");
+        prenom = Console.ReadLine();
 
-Console.WriteLine("Le nom est " + myPerson.nom + " le prenom est " + myPerson.prenom);
+        Console.WriteLine("Le nom est " + nom + " le prenom est " + prenom);
 
-PersonContainer myPersonContainer = new PersonContainer();
-myPersonContainer.personnes.add(myPerson);
+        Person myPerson = new Person(nom,prenom);
+        
+
+        Console.WriteLine("Le nom est " + myPerson.nom + " le prenom est " + myPerson.prenom);
+
+        List<Person> test = new List<Person>() { myPerson };
+        PersonContainer myPersonContainer = new PersonContainer(test);
+
+    }
+}
+
+
