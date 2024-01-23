@@ -1,4 +1,4 @@
 public class Person{
-    string nom;
-    string prenom;
+    public string nom;
+    public string prenom;
 }
