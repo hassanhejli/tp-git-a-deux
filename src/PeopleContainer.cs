@@ -11,16 +11,16 @@ public class PersonContainer{
             this.personnes= _personnes;
         }
 
-        public List<Person> SortByLastName(List<Person> _personnes)
+        public List<string> SortByLastName(List<string> _nom)
         {
-            _personnes.Sort((x,y) => string.Compare(x.nom,y.nom));
-            return _personnes;
+            _nom.Sort();
+            return _nom;
         }
 
-        public List<Person> SortByFirstName(List<Person> _personnes)
+        public List<String> SortByFirstName(List<String> _prenoms)
         {
-            _personnes.Sort((x,y) => string.Compare(x.prenom,y.prenom));
-            return _personnes;
+            _prenoms.Sort();
+            return _prenoms;
         }
 
 }
