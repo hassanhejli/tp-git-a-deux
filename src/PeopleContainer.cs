@@ -1,4 +1,4 @@
-public class{
+public class PeopleContainer{
 
         List<Person> personnes = new list();
 
