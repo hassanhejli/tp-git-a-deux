@@ -6,3 +6,7 @@ projet réalisé en commun avec Aurélien
 
 2eme modification
 
+<<<<<<< Updated upstream
+=======
+Modification test projet
+>>>>>>> Stashed changes
