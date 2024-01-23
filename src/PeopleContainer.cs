@@ -3,13 +3,13 @@ public class{
         public List SortByLastName(List _personnes)
         {
             _personnes.nom.Sort((x,y) => string.Compare(x.nom,y.nom));
-            return _noms;
+            return _personnes;
         }
 
         public List SortByFirstName(List _personnes)
         {
             _personnes.prenom.Sort((x,y) => string.Compare(x.prenom,y.prenom));
-            return _prenoms;
+            return _personnes;
         }
 
 }
