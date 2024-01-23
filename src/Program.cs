@@ -1,4 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
+interface IPersonContainer
+{
+    List<Person> SortByLastName();
+    List<Person> SortByFirstName();
+}
+// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
 string nom;
