@@ -23,3 +23,6 @@ myPerson.nom = nom;
 myPerson.prenom = prenom;
 
 Console.WriteLine("Le nom est " + myPerson.nom + " le prenom est " + myPerson.prenom);
+
+PersonContainer myPersonContainer = new PersonContainer();
+myPersonContainer.personnes.add(myPerson);
