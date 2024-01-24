@@ -1,6 +1,6 @@
 public class Person{
-    private string nom;
-    private string prenom;
+    public string nom { get; set; }
+    public string prenom { get; set; }
 
     //Constructeur avec paramètres
     public Person(string _nom,string _prenom)
@@ -30,10 +30,5 @@ public class Person{
         }
         return false;
     } 
-
-    public override string ToString()
-    {
-        return this.nom+" "+this.prenom;
-    }
 
 }
