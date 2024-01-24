@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 interface IPersonContainer
 {
@@ -14,26 +15,36 @@ class Program {
         Console.WriteLine("Hello, World!");
 
 
-        //Variables visants à récuperer less noms et prénoms saisis au clavier
-        string nom;
-        string prenom;
-
-
         //Liste de personnes, de noms et de prénoms
         List<Person> listePersonnes= new List<Person>();
         List<String> triNoms = new List<String>();
         List<String> triPrenoms = new List<String>();
 
+        listePersonnes.Add(new Person("Crochet","Florent"));
+        listePersonnes.Add(new Person("Gibier","Aurelien"));
+        listePersonnes.Add(new Person("Maurice","Anthony"));
+
         do{
+
+        //Variables visants à récuperer less noms et prénoms saisis au clavier
+        string nom;
+        string prenom;
+
+        //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
+        for(int i=0; i< listePersonnes.Count;i++)
+        {
+            triNoms.Add(listePersonnes[i].getNom());
+            triPrenoms.Add(listePersonnes[i].getPrenom());
+        }
 
         //Saisie du nom d'un personne
         Console.WriteLine("Saisir le nom");
-        nom = Console.ReadLine();
+        nom = Console.ReadLine().Trim();
 
 
         //Saisie du prénom d'une personne
         Console.WriteLine("Saisir le prénom");
-        prenom = Console.ReadLine();
+        prenom = Console.ReadLine().Trim();
 
         //Création d'une personne avec le nom et le prénom saisis
         Person myPerson = new Person(nom,prenom);       

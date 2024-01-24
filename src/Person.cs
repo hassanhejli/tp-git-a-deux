@@ -24,7 +24,7 @@ public class Person{
     //Fonction de comparaison de deux personnes
     public bool comparer(Person other)
     {
-        if(other.prenom.Equals(this.prenom) && other.nom.Equals(this.nom))
+        if(other.prenom.ToUpper().Equals(this.prenom.ToUpper()) && other.nom.ToUpper().Equals(this.nom.ToUpper()))
         {
             return true;
         }
