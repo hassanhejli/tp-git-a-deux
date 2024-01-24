@@ -15,8 +15,8 @@ class Program {
 
         string nom;
         string prenom;
-        
-        List<Person> test = new List<Person>();
+
+        List<Person> listePersonnes= new List<Person>();
         List<String> triNoms = new List<String>();
         List<String> triPrenoms = new List<String>();
 
@@ -28,21 +28,33 @@ class Program {
         Console.WriteLine("Saisir le prénom");
         prenom = Console.ReadLine();
 
-<<<<<<< HEAD
         Person myPerson = new Person(nom,prenom);       
-=======
-        Console.WriteLine("Le nom est " + nom + " le prenom est " + prenom);
-        Person myPerson = new Person(nom,prenom);
-        
 
-        Console.WriteLine("Le nom est " + myPerson.getNom() + " le prenom est " + myPerson.getPrenom());
->>>>>>> fb0fe94786ec6c60dbb57be8f63d3de0953a148c
+        bool testPersonne = false;
 
-        test.Add(myPerson);
-        PersonContainer myPersonContainer = new PersonContainer(test);
+        for(int i=0;i < listePersonnes.Count;i++)
+        {
+            if(listePersonnes[i].comparer(myPerson))
+            {
+                testPersonne=true;
+            }
+            else
+            {
+                testPersonne = false;
+            }
+        }
+        if(testPersonne == false)
+        {
+            listePersonnes.Add(myPerson);
+            triNoms.Add(myPerson.getNom());
+            triPrenoms.Add(myPerson.getPrenom());
+        }
+        else
+        {
+            Console.WriteLine("La personne est déja présente dans la liste.");
+        }
 
-        triNoms.Add(myPerson.getNom());
-        triPrenoms.Add(myPerson.getPrenom());
+        PersonContainer myPersonContainer = new PersonContainer(listePersonnes);
 
         myPersonContainer.SortByLastName(triNoms);
         myPersonContainer.SortByFirstName(triPrenoms);

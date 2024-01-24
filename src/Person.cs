@@ -17,4 +17,14 @@ public class Person{
     {
         return this.prenom;
     }
+
+    public bool comparer(Person other)
+    {
+        if(other.prenom.Equals(this.prenom) && other.nom.Equals(this.nom))
+        {
+            return true;
+        }
+        return false;
+    } 
+
 }
