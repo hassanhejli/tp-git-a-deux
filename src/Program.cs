@@ -112,7 +112,7 @@ class Program {
 
         Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
 
-        if(Console.ReadLine().ToUpper().Equals("o"))
+        if(Console.ReadLine().Equals("o"))
         {
             string json = JsonSerializer.Serialize(listePersonnes);
             Console.WriteLine(json);
