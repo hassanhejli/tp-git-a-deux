@@ -8,8 +8,8 @@ namespace TP01
 {
     public class Person
     {
-        private string nom;
-        private string prenom;
+        public string nom {get;set; }
+        public string prenom {get; set; }
 
         //Constructeur avec paramètres
         public Person(string _nom, string _prenom)

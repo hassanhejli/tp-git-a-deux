@@ -1,4 +1,8 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace TP01
 {
@@ -12,15 +16,12 @@ namespace TP01
             List<String> triNoms = new List<String>();
             List<String> triPrenoms = new List<String>();
 
+
+            //Instanciation de trois objets Person et ajout de ces trois objets à la liste de personnes
             listePersonnes.Add(new Person("Crochet", "Florent"));
             listePersonnes.Add(new Person("Gibier", "Aurelien"));
             listePersonnes.Add(new Person("Maurice", "Anthony"));
 
-            foreach (Person test in listePersonnes)
-            {
-                Console.WriteLine(test.getNom());
-                Console.WriteLine(test.getPrenom());
-            }
             //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
             for (int i = 0; i < listePersonnes.Count; i++)
             {
@@ -28,14 +29,14 @@ namespace TP01
                 triPrenoms.Add(listePersonnes[i].getPrenom());
             }
 
+            //Début du Do/While qui permet la gestion de l'ajout de personnes par l'utilisateur
+            //La condition du while est une saisie clavier
             do
             {
 
                 //Variables visants à récuperer less noms et prénoms saisis au clavier
                 string nom;
                 string prenom;
-
-
 
                 //Saisie du nom d'un personne
                 Console.WriteLine("Saisir le nom");
@@ -99,13 +100,16 @@ namespace TP01
                 //On demande à l'utilisateur s'il veut réjouter une personne
                 Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, n'import quelle autre touche pour quitter.");
 
-            } while (Console.ReadLine().ToUpper().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
+            } while (Console.ReadLine().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
 
+            //Demande à l"utilisateur s'il veut récupérer la liste de personnes dans un fichier JSON
             Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
 
-            if (Console.ReadLine().ToUpper().Equals("O"))
+            //Si l'utilisateur le choisit nous créons une chaine de caractère récupérant la liste de personne
+            // et nous créons un fichier json qui récupère cette chaine
+            if (Console.ReadLine().Equals("o"))
             {
-                string json = Newtonsoft.Json.JsonConvert.SerializeObject(listePersonnes);
+                string json = JsonSerializer.Serialize(listePersonnes);
                 File.WriteAllText(@"C:\Users\fcrochet\Documents\GitHub\tp-git-a-deux-hassanaurel\TP01\personnes.json", json);
             }
         }
