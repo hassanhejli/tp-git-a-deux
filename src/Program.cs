@@ -28,14 +28,14 @@ class Program {
 
         foreach(Person test in listePersonnes)
         {
-            Console.WriteLine(test.getNom());
-            Console.WriteLine(test.getPrenom());
+            Console.WriteLine(test.nom);
+            Console.WriteLine(test.prenom);
         }
         //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
         for(int i=0; i< listePersonnes.Count;i++)
         {
-            triNoms.Add(listePersonnes[i].getNom());
-            triPrenoms.Add(listePersonnes[i].getPrenom());
+            triNoms.Add(listePersonnes[i].nom);
+            triPrenoms.Add(listePersonnes[i].prenom);
         }
 
         do{
@@ -75,8 +75,8 @@ class Program {
         if(testPersonne == false)
         {
             listePersonnes.Add(myPerson);
-            triNoms.Add(myPerson.getNom());
-            triPrenoms.Add(myPerson.getPrenom());
+            triNoms.Add(myPerson.nom);
+            triPrenoms.Add(myPerson.prenom);
         }
         //Sinon on dit qu'elle est déja présente sans l'ajouter
         else
@@ -114,7 +114,7 @@ class Program {
 
         if(Console.ReadLine().ToUpper().Equals("o"))
         {
-            string json = JsonSerializer.Serialize(listePersonnes);
+              string json = JsonSerializer.Serialize(listePersonnes);
             Console.WriteLine(json);
             File.WriteAllText(@".\personnes.json", json);
         }

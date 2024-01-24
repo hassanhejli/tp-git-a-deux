@@ -9,17 +9,6 @@ public class Person{
         this.prenom=_prenom;
     }
 
-    //Getter du nom
-    public string getNom()
-    {
-        return this.nom;
-    }
-
-    //Getter du prénom
-    public string getPrenom()
-    {
-        return this.prenom;
-    }
 
     //Fonction de comparaison de deux personnes
     public bool comparer(Person other)
