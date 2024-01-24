@@ -110,15 +110,11 @@ class Program {
 
         }while(Console.ReadLine().ToUpper().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
 
-        Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
-
-        if(Console.ReadLine().ToUpper().Equals("o"))
-        {
             string json = JsonSerializer.Serialize(listePersonnes);
             Console.WriteLine(json);
-            File.WriteAllText(@".\personnes.json", json);
+            File.WriteAllText(@".\listePersonnes.json", json);
         }
     }
-}
+
 
 
