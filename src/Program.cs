@@ -4,7 +4,6 @@ using System.Linq.Expressions;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-
 interface IPersonContainer
 {
     List<Person> SortByLastName();
@@ -41,7 +40,7 @@ class Program {
 
         do{
 
-        //Variables visants à récuperer less noms et prénoms saisis au clavier
+        //Variables visants à récuperer les noms et prénoms saisis au clavier
         string nom;
         string prenom;
 
@@ -111,17 +110,13 @@ class Program {
 
         }while(Console.ReadLine().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
 
-        Console.WriteLine("Voulez vous sauvergarder les données en JSON? o pour oui.");
+        Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
 
-        if(Console.ReadLine().Equals("o"))
+        if(Console.ReadLine().ToUpper().Equals("o"))
         {
             string json = JsonSerializer.Serialize(listePersonnes);
             Console.WriteLine(json);
             File.WriteAllText(@".\personnes.json", json);
         }
-
-        }
     }
-
-
-
+}
