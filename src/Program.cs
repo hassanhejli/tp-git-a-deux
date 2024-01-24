@@ -40,7 +40,7 @@ class Program {
 
         do{
 
-        //Variables visants à récuperer less noms et prénoms saisis au clavier
+        //Variables visants à récuperer les noms et prénoms saisis au clavier
         string nom;
         string prenom;
 
