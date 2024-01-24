@@ -4,10 +4,10 @@ using System.Linq.Expressions;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-interface IPersonContainer
+public interface IPersonContainer
 {
-    List<Person> SortByLastName();
-    List<Person> SortByFirstName();
+    public List<Person> SortByLastName(List<string> noms);
+    public List<Person> SortByFirstName(List<string> prenoms);
 }
 
 
@@ -101,4 +101,4 @@ class Program {
             }
         }
     }
-}
+

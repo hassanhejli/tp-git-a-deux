@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TP01
 {
-    public class PersonContainer
+    public class PersonContainer : IPersonContainer
     {
         public List<Person> personnes;
 
@@ -32,6 +32,14 @@ namespace TP01
             return _prenoms;
         }
 
+        List<Person> IPersonContainer.SortByLastName(List<string> noms)
+        {
+            throw new NotImplementedException();
+        }
 
+        List<Person> IPersonContainer.SortByFirstName(List<string> prenoms)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

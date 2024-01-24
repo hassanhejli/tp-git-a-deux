@@ -7,9 +7,14 @@ using System.Text.Json.Serialization;
 
 namespace TP01
 {
+    public interface IPersonContainer
+    {
+        public List<Person> SortByLastName(List<string> noms);
+        public List<Person> SortByFirstName(List<string> prenoms);
+    }
     internal class Program
     {
-
+        
         public static string saisie(string typeSaisie)
         {
             string saisie;

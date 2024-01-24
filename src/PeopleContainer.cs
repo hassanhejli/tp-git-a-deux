@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-public class PersonContainer
+public class  PersonContainer : IPersonContainer
     {
         public List<Person> personnes;
 
@@ -28,5 +28,13 @@ public class PersonContainer
             return _prenoms;
         }
 
-
+    List<Person> IPersonContainer.SortByLastName(List<string> noms)
+    {
+        throw new NotImplementedException();
     }
+
+    List<Person> IPersonContainer.SortByFirstName(List<string> prenoms)
+    {
+        throw new NotImplementedException();
+    }
+}
