@@ -115,7 +115,6 @@ class Program {
 
         if(Console.ReadLine().ToUpper().Equals("O"))
         {
-            string json = JsonConverter
             Console.WriteLine("test "+json);
             File.WriteAllText(@".\personnes.json", json);
         }
