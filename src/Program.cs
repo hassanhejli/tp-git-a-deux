@@ -24,18 +24,20 @@ class Program {
         listePersonnes.Add(new Person("Gibier","Aurelien"));
         listePersonnes.Add(new Person("Maurice","Anthony"));
 
-        do{
-
-        //Variables visants à récuperer less noms et prénoms saisis au clavier
-        string nom;
-        string prenom;
-
         //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
         for(int i=0; i< listePersonnes.Count;i++)
         {
             triNoms.Add(listePersonnes[i].getNom());
             triPrenoms.Add(listePersonnes[i].getPrenom());
         }
+
+        do{
+
+        //Variables visants à récuperer less noms et prénoms saisis au clavier
+        string nom;
+        string prenom;
+
+
 
         //Saisie du nom d'un personne
         Console.WriteLine("Saisir le nom");
@@ -53,17 +55,13 @@ class Program {
         bool testPersonne = false;
 
         //Test pour toute la liste de personnes si la nouvelle personne est présente dedans
-        for(int i=0;i < listePersonnes.Count;i++)
+        for(int i=0;i < listePersonnes.Count && !testPersonne;i++)
         {
             //On compare(grace à la méthode de la classe Person) la personne de la liste à l'indice i avec la personne créée plus haut
             if(listePersonnes[i].comparer(myPerson))
             {
                 testPersonne=true;
-            }
-            else
-            {
-                testPersonne = false;
-            }
+            }        
         }
 
         //Si la personne n'est pas présente, on l'ajoute
