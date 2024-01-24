@@ -108,7 +108,7 @@ class Program {
         //On demande à l'utilisateur s'il veut réjouter une personne
         Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, n'import quelle autre touche pour quitter.");
 
-        }while(Console.ReadLine().ToUpper().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
+        }while(Console.ReadLine().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
 
         Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
 
