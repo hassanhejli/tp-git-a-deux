@@ -10,10 +10,10 @@ interface IPersonContainer
     List<Person> SortByFirstName();
 }
 
-class Program {
-        public static void Main (string[] args) {
 
-         static string saisie(string typeSaisie)
+class Program {
+
+        static string saisie(string typeSaisie)
         {
             string saisie;
             //Saisie du nom d'un personne
