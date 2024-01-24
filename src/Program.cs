@@ -17,7 +17,6 @@ Console.WriteLine("Saisir le prénom");
 prenom = Console.ReadLine();
 
 Console.WriteLine("Le nom est " + nom + " le prenom est " + prenom);
-
 Person myPerson = new Person();
 myPerson.nom = nom;
 myPerson.prenom = prenom;
