@@ -26,7 +26,7 @@ namespace TP01
         }
 
         //Methode qui tri les prénoms par ordre alphabétique
-        public List<String> SortByFirstName(List<String> _prenoms)
+        public List<string> SortByFirstName(List<string> _prenoms)
         {
             _prenoms.Sort();
             return _prenoms;

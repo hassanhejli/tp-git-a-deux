@@ -15,7 +15,7 @@ namespace TP01
     internal class Program
     {
         
-        public static string saisie(string typeSaisie)
+        public static string afficheSaisie(string typeSaisie)
         {
             string saisie;
             //Saisie du nom d'un personne
@@ -42,7 +42,7 @@ namespace TP01
         }
 
         //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
-        public static void ajout(List<Person> listePersonnes, List<string> triNoms, List<string> triPrenoms)
+        static void ajout(List<Person> listePersonnes, List<string> triNoms, List<string> triPrenoms)
         {
             for (int i = 0; i < listePersonnes.Count; i++)
             {
@@ -50,24 +50,27 @@ namespace TP01
                 triPrenoms.Add(listePersonnes[i].prenom);
             }
         }
-    static void Main(string[] args)
+        static void Main(string[] args)
         {
             //Liste de personnes, de noms et de prénoms
             List<Person> listePersonnes = new List<Person>();
-            List<String> triNoms = new List<String>();
-            List<String> triPrenoms = new List<String>();
+            List<string> triNoms = new List<string>();
+            List<string> triPrenoms = new List<string>();
 
             //Instanciation de trois objets Person et ajout de ces trois objets à la liste de personnes
             listePersonnes.Add(new Person("Crochet", "Florent"));
             listePersonnes.Add(new Person("Gibier", "Aurelien"));
             listePersonnes.Add(new Person("Maurice", "Anthony"));
 
+            //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
+            ajout(listePersonnes, triNoms, triPrenoms);
+
             //Début du Do/While qui permet la gestion de l'ajout de personnes par l'utilisateur
             //La condition du while est une saisie clavier
             do
             {
                 //Création d'une personne avec le nom et le prénom saisis
-                Person myPerson = new Person(saisie("nom"),saisie("prenom"));
+                Person myPerson = new Person(afficheSaisie("nom"),afficheSaisie("prenom"));
 
                 //On remplis
                 myPerson.remplissage(listePersonnes,triNoms,triPrenoms,myPerson);
@@ -75,17 +78,21 @@ namespace TP01
                 //On instancie la classe PeopleContainer en lui donnant en attribut la liste de personnes
                 PersonContainer myPersonContainer = new PersonContainer(listePersonnes);
 
-                //On s'en sert pour trier les noms et prénoms grace à ses méthode de classes
-                myPersonContainer.SortByLastName(triNoms);
-                myPersonContainer.SortByFirstName(triPrenoms);
-
-                //On ajoute les noms et prénoms à deux listes
-                ajout(listePersonnes,triNoms, triPrenoms);
-                //On affiche les noms
-                affichage(triNoms);
-
-                //On afiche les prénoms
-                affichage(triPrenoms);
+                //On s'en sert pour trier les noms ou prénoms grace à ses méthode de classes
+                Console.WriteLine("Tri par nom ou prénoms? n ou p");
+                string saisie = Console.ReadLine();
+                if (saisie.Equals("n"))
+                {
+                    myPersonContainer.SortByLastName(triNoms);
+                    //On affiche les noms
+                    affichage(triNoms);
+                }
+                else if (saisie.Equals("p"))
+                {
+                    myPersonContainer.SortByFirstName(triPrenoms);
+                    //On afiche les prénoms
+                    affichage(triPrenoms);
+                }
 
                 //On demande à l'utilisateur s'il veut réjouter une personne
                 Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, n'import quelle autre touche pour quitter.");
