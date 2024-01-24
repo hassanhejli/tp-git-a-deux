@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 interface IPersonContainer
 {
@@ -24,6 +26,11 @@ class Program {
         listePersonnes.Add(new Person("Gibier","Aurelien"));
         listePersonnes.Add(new Person("Maurice","Anthony"));
 
+        foreach(Person test in listePersonnes)
+        {
+            Console.WriteLine(test.getNom());
+            Console.WriteLine(test.getPrenom());
+        }
         //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
         for(int i=0; i< listePersonnes.Count;i++)
         {
@@ -101,8 +108,16 @@ class Program {
         //On demande à l'utilisateur s'il veut réjouter une personne
         Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, n'import quelle autre touche pour quitter.");
 
-        }while(Console.ReadLine().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
+        }while(Console.ReadLine().ToUpper().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
 
+        Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
+
+        if(Console.ReadLine().ToUpper().Equals("o"))
+        {
+            string json = JsonSerializer.Serialize(listePersonnes);
+            Console.WriteLine(json);
+            File.WriteAllText(@".\personnes.json", json);
+        }
     }
 }
 
