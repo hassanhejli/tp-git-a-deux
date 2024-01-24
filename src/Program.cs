@@ -20,7 +20,7 @@ class Program {
         List<String> triNoms = new List<String>();
         List<String> triPrenoms = new List<String>();
 
-        do{o
+        do{
         
         Console.WriteLine("Saisir le nom");
         nom = Console.ReadLine();
@@ -28,7 +28,15 @@ class Program {
         Console.WriteLine("Saisir le prénom");
         prenom = Console.ReadLine();
 
+<<<<<<< HEAD
         Person myPerson = new Person(nom,prenom);       
+=======
+        Console.WriteLine("Le nom est " + nom + " le prenom est " + prenom);
+        Person myPerson = new Person(nom,prenom);
+        
+
+        Console.WriteLine("Le nom est " + myPerson.getNom() + " le prenom est " + myPerson.getPrenom());
+>>>>>>> fb0fe94786ec6c60dbb57be8f63d3de0953a148c
 
         test.Add(myPerson);
         PersonContainer myPersonContainer = new PersonContainer(test);
