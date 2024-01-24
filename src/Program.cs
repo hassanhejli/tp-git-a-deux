@@ -20,7 +20,7 @@ class Program {
         List<String> triNoms = new List<String>();
         List<String> triPrenoms = new List<String>();
 
-        do{
+        do{o
         
         Console.WriteLine("Saisir le nom");
         nom = Console.ReadLine();
@@ -28,31 +28,29 @@ class Program {
         Console.WriteLine("Saisir le prénom");
         prenom = Console.ReadLine();
 
-        Console.WriteLine("Le nom est " + nom + " le prenom est " + prenom);
-
-        Person myPerson = new Person(nom,prenom);
-        
-
-        Console.WriteLine("Le nom est " + myPerson.getNom() + " le prenom est " + myPerson.getPrenom());
+        Person myPerson = new Person(nom,prenom);       
 
         test.Add(myPerson);
         PersonContainer myPersonContainer = new PersonContainer(test);
 
-
-        for(int i = 0; i< test.Count;i++)
-        {
-            triNoms.Add(test[i].getNom());
-            triPrenoms.Add(test[i].getPrenom());
-        }
+        triNoms.Add(myPerson.getNom());
+        triPrenoms.Add(myPerson.getPrenom());
 
         myPersonContainer.SortByLastName(triNoms);
         myPersonContainer.SortByFirstName(triPrenoms);
 
-        Console.WriteLine("Par ordre alphabétique:");
+        Console.WriteLine("Noms par ordre alphabétique:");
 
         for(int i =0; i < triNoms.Count;i++)
         {
-            Console.WriteLine(triNoms[i] + "    " + triPrenoms[i]);
+            Console.WriteLine(triNoms[i]);
+        }
+
+        Console.WriteLine("Prenoms par ordre alphabétique:");
+
+        for(int i =0; i < triPrenoms.Count;i++)
+        {
+            Console.WriteLine(triPrenoms[i]);
         }
 
         Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, q pour quitter.");
