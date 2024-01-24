@@ -2,15 +2,15 @@
 using System;
 using System.Collections.Generic;
 
-public class PersonContainer{
-
+public class PersonContainer
+    {
         public List<Person> personnes;
 
 
         //Constructeur avec paramètres
         public PersonContainer(List<Person> _personnes)
         {
-            this.personnes= _personnes;
+            this.personnes = _personnes;
         }
 
 
@@ -27,6 +27,6 @@ public class PersonContainer{
             _prenoms.Sort();
             return _prenoms;
         }
-        
 
-}
+
+    }
