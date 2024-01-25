@@ -4,12 +4,11 @@ using System.Linq.Expressions;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-public interface IPersonContainer
-{
-    public List<Person> SortByLastName(List<string> noms);
-    public List<Person> SortByFirstName(List<string> prenoms);
-}
-
+public interface IPeopleContainer
+    {
+        public List<string> SortByLastName(List<string> _noms);
+        public List<string> SortByFirstName(List<string> _prenoms);
+    }
 
 internal class Program
     {
@@ -75,7 +74,7 @@ internal class Program
                 myPerson.remplissage(listePersonnes,triNoms,triPrenoms,myPerson);
 
                 //On instancie la classe PeopleContainer en lui donnant en attribut la liste de personnes
-                PersonContainer myPersonContainer = new PersonContainer(listePersonnes);
+                PeopleContainer myPersonContainer = new PeopleContainer(listePersonnes);
 
                 //On s'en sert pour trier les noms ou prénoms grace à ses méthode de classes
                 Console.WriteLine("Tri par nom ou prénoms? n ou p");

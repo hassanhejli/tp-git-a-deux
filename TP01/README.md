@@ -1,4 +1,4 @@
-# TP 01
+﻿# TP 01
 
 ## Les classes
 
@@ -42,5 +42,16 @@ Nous demandons àl'utilisateur s'il veut ajouter une personne à la liste de per
 Si oui nous passons/repassons dans le while,<br>
 Si non, nous sortons du while.<br>
 Enfin nous demandons à l'utilsateur s'il veut stocker les personnes dans une fichier JSON.Et nous appelons la methode remplissageJSON si oui.Sinon nous quittons le programme.
+
+
+
+
+
+
+
+
+
+
+
 
 

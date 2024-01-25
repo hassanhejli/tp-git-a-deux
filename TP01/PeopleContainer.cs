@@ -1,11 +1,12 @@
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class PeopleContainer : IPeopleContainer
+namespace TP01
+{
+    public class PeopleContainer : IPeopleContainer
     {
         private List<Person> personnes;
 
@@ -32,4 +33,5 @@ public class PeopleContainer : IPeopleContainer
             return triPrenoms;
             throw new NotImplementedException();
         }
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
@@ -7,14 +8,14 @@ using System.Text.Json.Serialization;
 
 namespace TP01
 {
-    public interface IPersonContainer
+    public interface IPeopleContainer
     {
-        public List<Person> SortByLastName(List<string> noms);
-        public List<Person> SortByFirstName(List<string> prenoms);
+        public List<string> SortByLastName(List<string> _noms);
+        public List<string> SortByFirstName(List<string> _prenoms);
     }
+
     internal class Program
     {
-        
         public static string afficheSaisie(string typeSaisie)
         {
             string saisie;
@@ -76,7 +77,7 @@ namespace TP01
                 myPerson.remplissage(listePersonnes,triNoms,triPrenoms,myPerson);
 
                 //On instancie la classe PeopleContainer en lui donnant en attribut la liste de personnes
-                PersonContainer myPersonContainer = new PersonContainer(listePersonnes);
+                PeopleContainer myPersonContainer = new PeopleContainer(listePersonnes);
 
                 //On s'en sert pour trier les noms ou prénoms grace à ses méthode de classes
                 Console.WriteLine("Tri par nom ou prénoms? n ou p");
