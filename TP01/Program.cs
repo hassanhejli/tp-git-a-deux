@@ -42,6 +42,21 @@ namespace TP01
             File.WriteAllText(@".\personnes.json", json);
         }
 
+        //Enlever une personne de la liste de personnes
+        public static void supprimerPersonne(List<Person> listePersonnes,Person suppr,List<string> removeNom, List<string> removePrenom)
+        {
+            for(int i=0; i < listePersonnes.Count; i++)
+            {
+                if (suppr.comparer(listePersonnes[i], listePersonnes))
+                {
+                    listePersonnes.Remove(listePersonnes.Find(p => p.nom == suppr.nom && p.prenom == suppr.prenom));
+                    removePrenom.Remove(suppr.prenom);
+                    removeNom.Remove(suppr.nom);
+                    break;
+                }
+            }              
+        }
+
         //Ajout des personnes deja présentes dans la liste de personne aux listes de tri
         static void ajout(List<Person> listePersonnes, List<string> triNoms, List<string> triPrenoms)
         {
@@ -73,22 +88,31 @@ namespace TP01
                 //Création d'une personne avec le nom et le prénom saisis
                 Person myPerson = new Person(afficheSaisie("nom"),afficheSaisie("prenom"));
 
-                //On remplis
-                myPerson.remplissage(listePersonnes,triNoms,triPrenoms,myPerson);
+                //On remplit et test si la personne est déja présente,et la supprime à la demande de l'utilisateur
+                bool testRemplissage = myPerson.remplissage(listePersonnes,triNoms,triPrenoms,myPerson);
+                if(testRemplissage == false)
+                {
+                    Console.WriteLine("La personne existe déja.");
+                    Console.WriteLine("Voulez vous la supprimer de la liste de personnes? o pour oui,n'importe quelle touche pour non");
+                    if(Console.ReadLine().ToUpper().Equals("O"))
+                    {
+                        supprimerPersonne(listePersonnes, myPerson,triNoms,triPrenoms);
+                    }
+                }
 
                 //On instancie la classe PeopleContainer en lui donnant en attribut la liste de personnes
                 PeopleContainer myPersonContainer = new PeopleContainer(listePersonnes);
 
                 //On s'en sert pour trier les noms ou prénoms grace à ses méthode de classes
-                Console.WriteLine("Tri par nom ou prénoms? n ou p");
-                string saisie = Console.ReadLine();
-                if (saisie.Equals("n"))
+                Console.WriteLine("Tri par nom ou prénoms? n ou p ou n'importe quelle touche pour quitter");
+                string saisie = Console.ReadLine().ToUpper();
+                if (saisie.Equals("N"))
                 {
                     myPersonContainer.SortByLastName(triNoms);
                     //On affiche les noms
                     affichage(triNoms);
                 }
-                else if (saisie.Equals("p"))
+                else if (saisie.Equals("P"))
                 {
                     myPersonContainer.SortByFirstName(triPrenoms);
                     //On afiche les prénoms
@@ -96,16 +120,16 @@ namespace TP01
                 }
 
                 //On demande à l'utilisateur s'il veut réjouter une personne
-                Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, n'import quelle autre touche pour quitter.");
+                Console.WriteLine("Voulez vous ajouter une autre personne? o pour oui, n'importe quelle autre touche pour quitter.");
 
-            } while (Console.ReadLine().Equals("o"));//Si o , on repasse dans la boucle, sinon on quitte
+            } while (Console.ReadLine().ToUpper().Equals("O"));//Si o , on repasse dans la boucle, sinon on quitte
 
             //Demande à l"utilisateur s'il veut récupérer la liste de personnes dans un fichier JSON
             Console.WriteLine("Voulez vous enregistrer vos données au format JSON ? o pour oui, autre pour quitter.");
 
             //Si l'utilisateur le choisit nous créons une chaine de caractère récupérant la liste de personne
             // et nous créons un fichier json qui récupère cette chaine
-            if (Console.ReadLine().Equals("o"))
+            if (Console.ReadLine().ToUpper().Equals("O"))
             {
                 remplissageJSON(listePersonnes);
             }
