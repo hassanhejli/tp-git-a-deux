@@ -12,7 +12,7 @@ True si identique, False sinon.<br><br>
 Une méthode remplissage qui prends 4 paramètres en entrée: une liste de personne, une liste de noms, une liste de prénoms et une personne.
 La personne est ajoutée à la liste de personnes si (grâce à la méthode comparer) elle n'est pas présente dans la liste.Et dans ce cas, son nom et son prénom sont ajoutés aux deux listes.</p>
 
-### La classe PopleContainer
+### La classe PeopleContainer
 
 <p>Contient:<br><br>
 Un attribut: liste de personne visant à stocker toutes les personnes que l'on doit y ajouter<br><br>
@@ -20,7 +20,7 @@ Un constructeur avec paramètre(liste de personnes) permttant d'instanicer des o
 Une méthode de tri par ordre alphabétique pour les prénoms(SortByFirstName) prenant en paramètre d'entrée une list de chaînes de caractères visant à récupérer les prénoms des personnes.<br><br>
 Une méthode de tri par ordre alphabétique pour les noms(SortByLastName) prenant en paramètre d'entrée une list de chaînes de caractères visant à récupérer les nom des personnes.<br><br></p>
 
-### La classe Porgram
+### La classe Program
 
 <p>Contient:<br><br>
 Une méthode (returnSaisie)permettant la demande d'un nom ou d'un prénom à l'utilisateur qui sera récupéré par Readline et retourné par la fonction.<br><br>
