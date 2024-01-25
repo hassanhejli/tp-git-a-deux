@@ -20,36 +20,37 @@ namespace TP01
         }
 
         //Fonction de comparaison de deux personnes
-        public bool comparer(Person other)
+        public bool comparer(Person other,List<Person> listePersonnes)
         {
-            if (other.prenom.ToUpper().Equals(this.prenom.ToUpper()) && other.nom.ToUpper().Equals(this.nom.ToUpper()))
+
+            for (int i = 0; i < listePersonnes.Count; i++)
             {
-                return true;
+                if (listePersonnes[i].prenom.ToUpper().Equals(this.prenom.ToUpper()) && other.nom.ToUpper().Equals(this.nom.ToUpper()))
+                {
+                    return true;
+                    break;
+                }
             }
             return false;
         }
 
-        public void remplissage(List<Person> listePersonnes, List<String> noms, List<String> prenoms,Person myPerson)
+        public bool remplissage(List<Person> listePersonnes, List<String> noms, List<String> prenoms,Person myPerson)
         {
-            //Booleen visant à tester si une personne est présente dans la liste
-            bool testPersonne = false;
-
-            //Test pour toute la liste de personnes si la nouvelle personne est présente dedans
-            for (int i = 0; i < listePersonnes.Count && !testPersonne; i++)
-            {
-                //On compare(grace à la méthode de la classe Person) la personne de la liste à l'indice i avec la personne créée plus haut
-                if (listePersonnes[i].comparer(myPerson))
-                {
-                    testPersonne = true;
-                }
-            }
+            bool rempli = false;
             //Si la personne n'est pas présente, on l'ajoute
-            if (testPersonne == false)
+
+            if (this.comparer(myPerson,listePersonnes) == false)
             {
                 listePersonnes.Add(myPerson);
                 noms.Add(myPerson.nom);
                 prenoms.Add(myPerson.prenom);
+                rempli = true;
             }
+            else
+            {
+                rempli = false;
+            }
+            return rempli;
         }         
 
     }
