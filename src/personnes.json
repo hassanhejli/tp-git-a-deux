@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 [{"nom":"Crochet","prenom":"Florent"},{"nom":"Gibier","prenom":"Aurelien"},{"nom":"Maurice","prenom":"Anthony"},{"nom":"fr","prenom":"rf"}]
+=======
+[{"nom":"Crochet","prenom":"Florent"},{"nom":"Gibier","prenom":"Aurelien"},{"nom":"Maurice","prenom":"Anthony"},{"nom":"TEST","prenom":"TEST"}]
+
+>>>>>>> fadc02898ca04215bf154694c1f8eb72da705f86

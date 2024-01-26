@@ -1,4 +1,4 @@
-# TP 01
+﻿# TP 01
 
 ## Les classes
 
@@ -7,7 +7,7 @@
 <p>Contient:<br><br>
 Deux propriétés: nom visant à stocker le nom d'une personne et prénom visant à stocker le prénom d'une personne.<br><br>
 Un constructeur avec paramètres(nom,prénom) permettant d'instancier des objets.<br><br>
-Une méthode comparer permettant de comaparer le nom et le prénom de deux personnes grace à une personne passée en paramètres,qui est comparée à une autre.
+Une méthode comparer permettant de comaparer le nom et le prénom de la personne saisie à toutes les personnes prséentes dans la liste de personnes grace à une personne passée en paramètres,qui est comparée à une autre.
 True si identique, False sinon.<br><br>
 Une méthode remplissage qui prends 4 paramètres en entrée: une liste de personne, une liste de noms, une liste de prénoms et une personne.
 La personne est ajoutée à la liste de personnes si (grâce à la méthode comparer) elle n'est pas présente dans la liste.Et dans ce cas, son nom et son prénom sont ajoutés aux deux listes.</p>
@@ -35,12 +35,26 @@ Les liste données en paramètres d'éntrée sont récupérés à chaque utilisa
 Nous créons trois objets Person.<br>
 Nous les ajoutons grâce à la methode ajout aux listes de prénoms/noms.<br>
 Nous entrons dans une boucle do/while, instancions une personne avec pour paramètres la fonction returnSaisie utilisée pour le nom et le prénom.<br>
+Nous instancions une personne avec pour nom et prénom des saisie clavier (avec la méthode returnSaisie)<br>
 Nous ajoutons la personne si elle n'est pas déja présente, dans la liste de personnes, puis dans les listes de prénoms et noms.<br>
+Nous prévenons si la personne était déja présente dans la liste de personnes.<br>
+Nous demandons à lu'ilisateur s'il veut supprimer la personne, et le faisons si oui (avec supprimerPersonne)
 Nous instancions un objet PeopleContainer avec la liste de personnes<br>
-Nous demandons à l'utilisateur s'il veut trier par nom ou pas prénoms,puis selon le cas nous trions la liste correspondante puis affichons la liste triée.<br>
-Nous demandons àl'utilisateur s'il veut ajouter une personne à la liste de personnes:<br>
+Nous demandons à l'utilisateur s'il veut trier par nom ou pas prénoms,puis selon le cas nous trions la liste correspondante (grace à nos méthodes de tri de PeopleContainer)puis affichons la liste triée (avec la méthode affichage).<br>
+Nous demandons à l'utilisateur s'il veut ajouter une personne à la liste de personnes:<br>
 Si oui nous passons/repassons dans le while,<br>
 Si non, nous sortons du while.<br>
 Enfin nous demandons à l'utilsateur s'il veut stocker les personnes dans une fichier JSON.Et nous appelons la methode remplissageJSON si oui.Sinon nous quittons le programme.
+
+
+
+
+
+
+
+
+
+
+
 
 
